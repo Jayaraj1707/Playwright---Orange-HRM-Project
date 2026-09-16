@@ -3,6 +3,10 @@ import { LoginPage } from "../pages/loginPage";
 import { creds } from "../utils/credentials";
 import logindata from "../utils/login_data.json";
 
+test.use({
+  storageState: { cookies: [], origins: [] },
+});
+
 test("Login with valid credentials", async ({ page }) => {
   const loginpage = new LoginPage(page);
   await loginpage.login(creds.loginusername, creds.password);
